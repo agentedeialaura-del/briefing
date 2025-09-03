@@ -1,47 +1,315 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.65">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; background-color: #b3b3b3}
-    span.s3 {font: 12.0px Helvetica; font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laura ia - Setup do Agente Virtual</title>
+    <style>
+        /* --- Reset Básico e Estilos Globais --- */
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --background-color: #f4f7fc;
+            --form-bg-color: #ffffff;
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #ddd;
+            --success-color: #28a745;
+            --font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Container Principal --- */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: var(--form-bg-color);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Cabeçalho e Títulos --- */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--light-text-color);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* --- Estrutura do Formulário --- */
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group .description {
+            font-size: 0.9rem;
+            color: var(--light-text-color);
+            margin-bottom: 10px;
+        }
+
+        /* --- Campos de Formulário (Inputs) --- */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(106, 17, 203, 0.2);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* --- Checkboxes --- */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-item input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* --- Upload de Arquivo --- */
+        .file-upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            background-color: #fafafa;
+        }
+        
+        .file-upload-area a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        input[type="file"] {
+            margin-top: 15px;
+        }
+        
+        /* --- Botão de Envio --- */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--light-text-color);
+        }
+        
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+        }
+
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1"></span><br></p>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Helvetica; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>SI Delivery</b></span></h1>
-<p class="p3"><span class="s1">Conveniência Santa Isabel</span></p>
-<p class="p4"><span class="s1">Carregando...</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Helvetica; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Nosso Cardápio</b></span></h2>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p3"><span class="s1">Aguardando produtos...</span></p>
-<p class="p6"><span class="s2">Que tal adicionar?</span><span class="s3"> </span><span class="s2">Peça de Novo</span><span class="s3"> </span><span class="s2">Meus Pedidos</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Helvetica; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Seu Pedido</b></span></h2>
-<p class="p3"><span class="s1">Seu carrinho está vazio.</span></p>
-<p class="p6"><span class="s2">Aplicar</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p4"><span class="s1">SubtotalR$ 0,00</span></p>
-<p class="p4"><span class="s1">Desconto- R$ 0,00</span></p>
-<p class="p4"><span class="s1">TotalR$ 0,00</span></p>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Helvetica; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Informações para Entrega</b></span></h3>
-<p class="p6"><span class="s2">Continuar</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Helvetica; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Forma de Pagamento</b></span></h3>
-<p class="p6"><span class="s2">Pagar na Entrega</span><span class="s3"> </span><span class="s2">Pagar Online</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1"></span><br></p>
-<h3 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 14.0px Helvetica; color: #000000; -webkit-text-stroke: #000000"><span class="s1"><b>Pedido Recebido!</b></span></h3>
-<p class="p3"><span class="s1">Seu pedido foi enviado com sucesso. Acompanhe o status na aba "Meus Pedidos".</span></p>
-<p class="p6"><span class="s2">Fechar</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
+
+    <div class="container">
+        <header>
+            <h1>Vamos dar vida ao seu Agente Virtual!</h1>
+            <p>Preencha o formulário abaixo com os dados da sua loja para iniciarmos a configuração.</p>
+        </header>
+
+        <main>
+            <form action="https://formspree.io/f/your_form_id" method="POST" enctype="multipart/form-data">
+
+                <section class="form-section">
+                    <h2>1. Dados da Loja</h2>
+                    <div class="form-group">
+                        <label for="nome-loja">Nome da Loja</label>
+                        <input type="text" id="nome-loja" name="nome_loja" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nome-atendente">Nome do Atendente Virtual (Ex: Clara)</label>
+                        <input type="text" id="nome-atendente" name="nome_atendente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao-loja">Descrição Curta da Loja (Slogan, horários)</label>
+                        <textarea id="descricao-loja" name="descricao_loja" placeholder="Ex: Desde 2016 | Tradição e estilo | Seg a Sex: 9h às 20h"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="politica-trocas">Política de Trocas, Devoluções e Frete</label>
+                        <textarea id="politica-trocas" name="politica_trocas" placeholder="Cole aqui o texto completo ou o link para a página com suas políticas."></textarea>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>2. Produtos e Serviços</h2>
+                    <div class="form-group">
+                        <label>Planilha de Produtos (Recomendado)</label>
+                        <div class="file-upload-area">
+                             <p class="description">
+                                Faça o download do nosso modelo, preencha com seus produtos e envie o arquivo aqui. É a forma mais rápida e organizada de cadastrar tudo.
+                            </p>
+                            <a href="#" download>Baixar modelo de planilha (.xlsx)</a>
+                            <input type="file" id="planilha-produtos" name="planilha_produtos" accept=".xlsx, .xls, .csv">
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="form-section">
+                    <h2>3. Frete e Entrega</h2>
+                     <div class="form-group">
+                        <label for="regioes-atendidas">Regiões Atendidas</label>
+                        <input type="text" id="regioes-atendidas" name="regioes_atendidas" placeholder="Ex: Todo o Brasil, apenas estado de SP, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label>Métodos de Envio Disponíveis</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item"><input type="checkbox" id="correios" name="metodo_envio[]" value="Correios"><label for="correios">Correios (PAC/Sedex)</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="transportadora" name="metodo_envio[]" value="Transportadora"><label for="transportadora">Transportadora</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="retirada" name="metodo_envio[]" value="Retirada no local"><label for="retirada">Retirada no local</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="motoboy" name="metodo_envio[]" value="Motoboy (delivery)"><label for="motoboy">Motoboy (delivery)</label></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tabela-frete">Prazos de Entrega e Tabela de Frete</label>
+                        <textarea id="tabela-frete" name="tabela_frete" placeholder="Descreva como o frete é calculado. Ex: Frete fixo de R$15, grátis acima de R$250."></textarea>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>4. Métodos de Pagamento</h2>
+                    <div class="form-group">
+                        <label>Métodos Aceitos</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item"><input type="checkbox" id="pix" name="metodo_pagamento[]" value="PIX"><label for="pix">PIX</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="cartao-credito" name="metodo_pagamento[]" value="Cartão de Crédito"><label for="cartao-credito">Cartão de Crédito</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="boleto" name="metodo_pagamento[]" value="Boleto Bancário"><label for="boleto">Boleto Bancário</label></div>
+                            <div class="checkbox-item"><input type="checkbox" id="link-pagamento" name="metodo_pagamento[]" value="Link de Pagamento"><label for="link-pagamento">Link de Pagamento</label></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="parcelamento">Informações sobre Parcelamento</label>
+                        <input type="text" id="parcelamento" name="parcelamento" placeholder="Ex: Em até 3x sem juros.">
+                    </div>
+                </section>
+                
+                <section class="form-section">
+                    <h2>5. Perguntas Frequentes (FAQ)</h2>
+                    <div class="form-group">
+                        <label for="faq-comprar">Como o cliente pode comprar na sua loja? (Passo a passo)</label>
+                        <textarea id="faq-comprar" name="faq_comprar"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="faq-rastrear">Como o cliente pode rastrear um pedido?</label>
+                        <textarea id="faq-rastrear" name="faq_rastrear"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="faq-troca">Qual o procedimento para solicitar uma troca ou devolução?</label>
+                        <textarea id="faq-troca" name="faq_troca"></textarea>
+                    </div>
+                </section>
+                
+                <section class="form-section">
+                    <h2>6. Dados Institucionais (Opcional)</h2>
+                    <div class="form-group">
+                        <label for="quem-somos">Quem Somos / Nossa História</label>
+                        <textarea id="quem-somos" name="quem_somos"></textarea>
+                    </div>
+                </section>
+
+                <button type="submit" class="submit-btn">Enviar Dados e Configurar Meu Agente</button>
+
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Laura ia - Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
 </body>
 </html>
