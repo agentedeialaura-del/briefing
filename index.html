@@ -55,18 +55,18 @@
         }
 
         .logo img {
-            max-width: 220px; /* Ajustei o tamanho para a nova logo retangular */
+            max-width: 220px; 
             height: auto;
         }
 
         header h1 {
             font-size: 2.5rem;
-            color: var(--text-color); /* H1 claro no modo escuro */
+            color: var(--text-color);
             margin-bottom: 10px;
             background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 800; /* Para o gradiente se destacar */
+            font-weight: 800;
         }
 
         header p {
@@ -79,7 +79,7 @@
             color: var(--text-color);
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color); /* Borda com a cor principal */
+            border-bottom: 2px solid var(--primary-color);
         }
 
         /* --- Estrutura do Formulário --- */
@@ -114,15 +114,15 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             font-size: 1rem;
-            background-color: #3b3b5c; /* Fundo do input mais escuro */
-            color: var(--text-color); /* Texto digitado claro */
+            background-color: #3b3b5c;
+            color: var(--text-color);
             transition: border-color 0.3s, box-shadow 0.3s;
         }
         
         input[type="text"]::placeholder,
         input[type="email"]::placeholder,
         textarea::placeholder {
-            color: var(--light-text-color); /* Placeholder mais suave */
+            color: var(--light-text-color);
         }
 
         input[type="text"]:focus,
@@ -148,16 +148,16 @@
             display: flex;
             align-items: center;
             margin-bottom: 10px;
-            color: var(--text-color); /* Cor do texto do checkbox */
+            color: var(--text-color);
         }
         
         .checkbox-item input[type="checkbox"] {
             margin-right: 10px;
             width: 18px;
             height: 18px;
-            accent-color: var(--primary-color); /* Cor do checkbox quando marcado */
+            accent-color: var(--primary-color);
             border: 1px solid var(--border-color);
-            background-color: #3b3b5c; /* Fundo do checkbox */
+            background-color: #3b3b5c;
         }
         
         /* --- Upload de Arquivo --- */
@@ -166,11 +166,11 @@
             border-radius: 8px;
             padding: 20px;
             text-align: center;
-            background-color: #3b3b5c; /* Fundo da área de upload */
+            background-color: #3b3b5c;
         }
         
         .file-upload-area a {
-            color: var(--secondary-color); /* Link com a cor azul da Laura */
+            color: var(--secondary-color);
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
@@ -182,7 +182,7 @@
         
         input[type="file"] {
             margin-top: 15px;
-            color: var(--text-color); /* Cor do texto do input file */
+            color: var(--text-color);
         }
         
         /* --- Botão de Envio --- */
@@ -255,6 +255,10 @@
                     <div class="form-group">
                         <label for="descricao-loja">Descrição Curta da Loja (Slogan, horários)</label>
                         <textarea id="descricao-loja" name="descricao_loja" placeholder="Ex: Desde 2016 | Tradição e estilo | Seg a Sex: 9h às 20h"></textarea>
+                    </div>
+                     <div class="form-group">
+                        <label for="profissionais-nomes">Nome dos Profissionais (Barbeiros, etc.)</label>
+                        <textarea id="profissionais-nomes" name="profissionais_nomes" class="textarea-dark" placeholder="Liste os nomes dos profissionais, um por linha.&#10;Ex:&#10;Diego&#10;Ricardo&#10;Fernanda"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="politica-trocas">Política de Trocas, Devoluções e Frete</label>
